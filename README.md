@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/foodiefm/redisrb-opentracing.svg?branch=master)](https://travis-ci.com/foodiefm/redisrb-opentracing)
+
 # Redisrb::Opentracing
 
 Opentracing instrumentation for Redis-rb
