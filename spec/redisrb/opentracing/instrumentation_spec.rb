@@ -53,6 +53,19 @@ RSpec.describe Redisrb::OpenTracing::Instrumentation do
     end
   end
 
+  describe 'tracing .hmset' do
+    before do
+      redis.hmset(:foo, 'key1', 1, 'key2', 2)
+    end
+
+    it_behaves_like 'correct span' do
+      let(:spans) { tracer.spans }
+      let(:name) { 'redis.hmset' }
+    end
+
+  end
+
+
   describe 'tracing multi' do
     before do
       redis.multi do
@@ -97,6 +110,27 @@ RSpec.describe Redisrb::OpenTracing::Instrumentation do
     it_behaves_like 'correct span' do
       let(:spans) { tracer.spans }
       let(:name) { 'redis.foo' }
+    end
+
+    it 'span has error tag' do
+      span = tracer.spans.last
+      expect(span.tags['error']).to be_truthy
+    end
+
+    it 'logs error' do
+      span = tracer.spans.last
+      expect(span.logs).to include(hash_including({key: 'error'}))
+    end
+  end
+
+  describe 'on error states in pipeline' do
+    before do
+      expect { redis.pipelined { redis.foo('1') } }.to raise_error
+    end
+
+    it_behaves_like 'correct span' do
+      let(:spans) { tracer.spans }
+      let(:name) { 'redis.pipelined' }
     end
 
     it 'span has error tag' do
