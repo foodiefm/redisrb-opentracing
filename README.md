@@ -1,8 +1,9 @@
 # Redisrb::Opentracing
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/redis/opentracing`. To experiment with that code, run `bin/console` for an interactive prompt.
+Opentracing instrumentation for Redis-rb
 
-TODO: Delete this and the text above, and describe your gem
+
+TODO: publish the gem
 
 ## Installation
 
@@ -25,9 +26,9 @@ Or install it yourself as:
 
 ```
 require 'redis'
-require 'redisrb-opentracing'
+require 'redisrb/opentracing'
 
-Redis::Client.send(:prepend, Redisrb::OpenTracing::Instrumentation.instrument)
+Redis::Client.send(:prepend, Redisrb::OpenTracing.instrument)
 ```
 
 
