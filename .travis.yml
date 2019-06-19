@@ -1,0 +1,15 @@
+dist: xenial
+language: ruby
+rvm:
+- 2.5
+- 2.6
+gemfile:
+- gemfiles/redis_latest.gemfile
+- gemfiles/redis_3.gemfile
+- gemfiles/redis_4.gemfile
+deploy:
+  provider: rubygems
+  api_key:
+    secure: YpXx/66ey6SWwPMCbznsSKVlp8zYl4TqMu2fBRoEgljuGV0EWWp/tDUygclE41UElz/BwQP0OUq7Fe1yavJRjWF2wkERl5TfSIvm6/Kz566gJnYN8moU+hW62euXDcOnoO2uGCdJVmasBhEWjEa6MYBGZ3G8rndG79fAHRfT9ekYRb/SsQoZnc5QImpWxyCkbmga/VF1O57f0+aYwJzoQ8F2YDEor+sNo5S/aUPItlxt0HiWH1lv/PJYsXsET+Ri6lnNLWV3wf5OiRnFvaDYvsoxGrUYdBLkGs00UI0+1GMiA2pfF6VjnXuz6JynMAKBF6spFv4ayqROezXJbBn6Edzcrstxjyi/PycTBy+/AyHU6dslqiTnecgfMTgcFoxAwOhg090hZ9eSaYDSXJlIKHjMS47ttVoalxwjz+nT/OO8xyRUx8XMjvaTy2Pe6UZfQSFnlYUo408CCn4BV2au7pwpnQkDElE/whh3PAKu9DdKXLlIkQn9W1+Qte69aWYVEU6nO6EfYve4aMsLQS1m7QiCR/wS1ya2Sg4eHj2YBnUmESvtZdj7MpYRee3o0ed+ZuGydKLk47mj2zNkMoFGHWK5/Bov1QTZEVFcqjEsBBVO/bzJF76hb+fcpkJ7tCzpnDOPKYqNZUwHzQ7USUZQTBX/mwUtoSfM3WA5Zn0buwY=
+  on:
+    tags: true
