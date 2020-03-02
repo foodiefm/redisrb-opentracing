@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/foodiefm/redisrb-opentracing.svg?branch=master)](https://travis-ci.com/foodiefm/redisrb-opentracing)
+[![Coverage Status](https://coveralls.io/repos/github/foodiefm/redisrb-opentracing/badge.svg?branch=master)](https://coveralls.io/github/foodiefm/redisrb-opentracing?branch=master)
 # Redisrb::Opentracing
 
 Opentracing instrumentation for Redis-rb
