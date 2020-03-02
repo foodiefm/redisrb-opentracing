@@ -5,6 +5,8 @@ rvm:
 - 2.6
 services:
   - redis-server
+before_install:
+- gem install bundler
 gemfile:
 - gemfiles/redis_latest.gemfile
 - gemfiles/redis_3.gemfile
